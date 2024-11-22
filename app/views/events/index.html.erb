@@ -1,0 +1,13 @@
+<h1>All Events</h1>
+
+<% if user_signed_in? %>
+  <%= link_to 'Create Event', new_event_path %>
+<% else %>
+  <p>You need to <%= link_to 'sign in', new_user_session_path %> to create an event.</p>
+<% end %>
+
+<ul>
+  <% @events.each do |event| %>
+    <li><%= event.name %> - <%= event.created_at %></li>
+  <% end %>
+</ul>
